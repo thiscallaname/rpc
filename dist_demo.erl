@@ -5,7 +5,7 @@ start(Node) ->
     spawn(Node, fun() -> loop() end).
 
 rpc(Pid, M, F, A) ->
-    Pid ! {rpc, self(), M, F, A}.
+    Pid ! {rpc, self(), M, F, A},
     receive
         {Pid, Response} ->
             Response
